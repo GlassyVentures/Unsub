@@ -7,7 +7,7 @@ const Profile: React.FC = () => {
 
   const handleButton = () => {
     if (status === "authenticated") {
-      signOut();
+      signOut({ callbackUrl: "/" });
     } else {
       signIn("google", {
         callbackUrl: "/dashboard",

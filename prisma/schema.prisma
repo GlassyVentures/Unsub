@@ -22,7 +22,7 @@ model Account {
   provider           String
   providerAccountId  String
   refresh_token      String?
-  access_token       String?
+  access_token       String? @db.VarChar(2000)
   expires_at         Int?
   token_type         String?
   scope              String?
@@ -58,7 +58,7 @@ model User {
 
 model EmailSubscription {
   id           String  @id @default(cuid())
-  companyEmail String  @unique
+  companyEmail String 
   companyName  String
   subscribed   Boolean @default(true)
   userId       String

@@ -114,6 +114,8 @@ export const appRouter = trpc
           } while (paginate);
         }
 
+        console.log("done!");
+
         scanned_emails.length > 0 &&
           (await prisma.emailSubscription.createMany({
             data: scanned_emails,
@@ -128,15 +130,17 @@ export const appRouter = trpc
       email: z.string().nullable(),
     }),
     async resolve({ input }) {
+      console.log("running", input);
       if (!input.email) return;
       const user = await prisma.user.findUnique({
         where: {
           email: input.email,
         },
       });
+
       return await prisma.emailSubscription.findMany({
         where: {
-          user: user!,
+          userId: user?.id,
         },
       });
     },

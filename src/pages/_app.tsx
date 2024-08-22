@@ -22,9 +22,7 @@ const Auth = ({ children }: { children: any }) => {
   useEffect(() => {
     if (status === "loading") return;
     if (!isUser) {
-      signIn("google", {
-        callbackUrl: process.env.NEXT_PUBLIC_PAYMENT_LINK!,
-      });
+      signIn();
     }
   }, [isUser, status]);
 

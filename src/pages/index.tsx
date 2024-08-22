@@ -11,7 +11,7 @@ const EarlyAccessButton = () => {
     if (session!.early_access) {
       return (
         <div className="relative rounded ">
-          <Link passHref href="/EarlyAccess">
+          <Link passHref href="/subs">
             <button className="glowbttn py-3 font-bold text-white transition-shadow duration-300 bg-black rounded shadow-2xl focus-within:ring-4 px-7 hover:bg-text-rad hover:shadow-none">
               Start Unsubscribing
             </button>
